@@ -12,32 +12,15 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        $builder = new TreeBuilder('authorization');
+        $builder = new TreeBuilder('prodavay_auth');
 
         $rootNode = $builder->getRootNode();
         $rootNode->children()
-            ->scalarNode('client_id')
-                ->isRequired()
-                ->defaultValue('')
+            ->scalarNode('url')
+            ->isRequired()
+            ->defaultValue('')
             ->end()
-            ->scalarNode('client_secret')
-                ->isRequired()
-                ->defaultValue('')
-                ->end()
-            ->scalarNode('url_authorize')
-                ->isRequired()
-                ->defaultValue('')
-                ->end()
-            ->scalarNode('url_access_token')
-                ->isRequired()
-                ->defaultValue('')
-                ->end()
-            ->scalarNode('url_resource_owner_details')
-                ->isRequired()
-                ->defaultValue('')
-                ->end()
             ->end();
 
         return $builder;
-    }
 }
