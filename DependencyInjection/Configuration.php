@@ -12,7 +12,7 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        $builder = new TreeBuilder('prodavay_auth');
+        $builder = new TreeBuilder('auth');
 
         $rootNode = $builder->getRootNode();
         $rootNode->children()

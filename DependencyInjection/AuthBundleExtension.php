@@ -10,7 +10,7 @@ use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
 class AuthBundleExtension extends Extension
 {
-    private const BUNDLE_NAME = 'authorization';
+    private const BUNDLE_NAME = 'auth';
 
     /**
      * @throws Exception

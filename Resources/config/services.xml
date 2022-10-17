@@ -5,16 +5,15 @@
         http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="prodavay_auth.url" />
+        <parameter key="auth.url" />
     </parameters>
     <services>
         <!-- LogService -->
-        <service id="prodavay_auth.service" class="Mixasmix\AuthBundle\Service\AuthService">
-            <argument key="$authProdavayApiUrl" type="string">%prodavay_auth.url%</argument>
-            <argument key="$logger" type="service" id="prodavay_graylog.service"/>
+        <service id="auth.service" class="Mixasmix\AuthBundle\Service\AuthService">
+            <argument key="$authProdavayApiUrl" type="string">%auth.url%</argument>
         </service>
 
-        <service id="Mixasmix\AuthBundle\Service\AuthService" alias="prodavay_auth.service" />
+        <service id="Mixasmix\AuthBundle\Service\AuthService" alias="auth.service" />
         <!-- End LogService -->
     </services>
 </container>
