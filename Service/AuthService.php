@@ -33,9 +33,11 @@ class AuthService
     {
         return new LinkData(
             link: $this->provider->getAuthorizationUrl([
-                'response_type' => is_null($responseType) ?
-                    AuthorizeResponseType::CODE->value :
-                    $responseType->value,
+                'response_type' => (
+                    is_null($responseType) ?
+                    AuthorizeResponseType::CODE :
+                    $responseType
+                )->value,
             ]),
             state: $this->provider->getState(),
         );

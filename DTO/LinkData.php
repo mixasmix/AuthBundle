@@ -2,11 +2,21 @@
 
 namespace Mixasmix\AuthBundle\DTO;
 
-class LinkData
+use JsonSerializable;
+
+class LinkData implements JsonSerializable
 {
     public function __construct(
         public readonly string $link,
         public readonly string $state,
     ) {
+    }
+
+    public function jsonSerialize(): array
+    {
+        return [
+            'link' => $this->link,
+            'state' => $this->state,
+        ];
     }
 }
