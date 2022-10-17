@@ -1,1 +1,1 @@
-# AuthBundle
+# AuthorizationBundle

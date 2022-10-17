@@ -9,11 +9,11 @@
     </parameters>
     <services>
         <!-- LogService -->
-        <service id="auth.service" class="Mixasmix\AuthBundle\Service\AuthService">
+        <service id="auth.service" class="Mixasmix\AuthorizationBundle\Service\AuthService">
             <argument key="$authProdavayApiUrl" type="string">%auth.url%</argument>
         </service>
 
-        <service id="Mixasmix\AuthBundle\Service\AuthService" alias="auth.service" />
+        <service id="Mixasmix\AuthorizationBundle\Service\AuthService" alias="auth.service" />
         <!-- End LogService -->
     </services>
 </container>

@@ -1,6 +1,6 @@
 <?php
 
-namespace Mixasmix\AuthBundle\Service;
+namespace Mixasmix\AuthorizationBundle\Service;
 
 class AuthService
 {
