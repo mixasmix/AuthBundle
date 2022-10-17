@@ -110,8 +110,8 @@ class AuthService
             phone: $ownerData['phone'] ?? null,
             roles: $ownerData['roles'] ?? [],
             isHasPassword: $ownerData['is_has_password'] ?? null,
-            createdAt: new DateTimeImmutable($ownerData['created_at']) ?? null,
-            updatedAt: new DateTimeImmutable($ownerData['updated_at']) ?? null,
+            createdAt: empty($ownerData['created_at']) ? null : new DateTimeImmutable($ownerData['created_at']),
+            updatedAt: empty($ownerData['updated_at']) ? null : new DateTimeImmutable($ownerData['updated_at']),
         );
     }
 }
