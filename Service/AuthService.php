@@ -87,15 +87,18 @@ class AuthService
     }
 
     /**
-     * @param AccessToken $accessToken
+     * @param string|AccessToken $accessToken
      *
      * @return UserData
      * @throws ResourseOwnerException
-     * @throws Exception
      */
-    public function getUserData(AccessToken $accessToken): UserData
+    public function getUserData(string|AccessToken $accessToken): UserData
     {
-        $ownerData = $this->provider->getResourceOwner($accessToken)->toArray();
+        $ownerData = $this->provider->getResourceOwner(
+            $accessToken instanceof AccessToken ?
+                $accessToken :
+                new AccessToken(['access_token' => $accessToken]),
+        )->toArray();
 
         if (!empty($ownerData['data']['errors'])) {
             throw new ResourseOwnerException(
