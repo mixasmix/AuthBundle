@@ -1,6 +1,6 @@
 <?php
 
-namespace Mixasmix\AuthorizationBundle\DependencyInjection;
+namespace Mixasmix\AuthBundle\DependencyInjection;
 
 use Exception;
 use Symfony\Component\Config\FileLocator;
@@ -8,7 +8,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
-class AuthorizationBundleExtension extends Extension
+class AuthorizationBundle extends Extension
 {
     private const BUNDLE_NAME = 'auth';
 

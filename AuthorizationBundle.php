@@ -1,6 +1,6 @@
 <?php
 
-namespace Mixasmix\AuthorizationBundle;
+namespace Mixasmix\AuthBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

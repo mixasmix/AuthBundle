@@ -1,6 +1,6 @@
 <?php
 
-namespace Mixasmix\AuthorizationBundle\DependencyInjection;
+namespace Mixasmix\AuthBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

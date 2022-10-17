@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Mixasmix\\AuthorizationBundle\\": ""
+            "Mixasmix\\AuthBundle\\": ""
         },
         "exclude-from-classmap": [
             "/Tests/"
