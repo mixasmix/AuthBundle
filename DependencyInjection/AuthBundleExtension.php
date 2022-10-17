@@ -21,10 +21,5 @@ class AuthBundleExtension extends Extension
         $loader->load('services.xml');
         $config = $this->processConfiguration(new Configuration(), $configs);
 
-        $container->setParameter(self::BUNDLE_NAME . '.client_id', $config['client_id']);
-        $container->setParameter(self::BUNDLE_NAME . '.client_secret', $config['client_secret']);
-        $container->setParameter(self::BUNDLE_NAME . '.url_authorize', $config['url_authorize']);
-        $container->setParameter(self::BUNDLE_NAME . '.url_access_token', $config['url_access_token']);
-        $container->setParameter(self::BUNDLE_NAME . '.url_resource_owner_details', $config['url_resource_owner_details']);
-    }
+        $container->setParameter(self::BUNDLE_NAME . '.url', $config['url']);}
 }
