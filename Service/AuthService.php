@@ -2,6 +2,8 @@
 
 namespace Mixasmix\AuthBundle\Service;
 
+use DateTimeImmutable;
+use Exception;
 use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
 use League\OAuth2\Client\Provider\GenericProvider;
 use League\OAuth2\Client\Token\AccessToken;
@@ -10,6 +12,7 @@ use Mixasmix\AuthBundle\DTO\UserData;
 use Mixasmix\AuthBundle\Enum\AuthorizeResponseType;
 use Mixasmix\AuthBundle\Enum\GrantType;
 use Mixasmix\AuthBundle\Exception\RequiredParameterEmptyException;
+use Mixasmix\AuthBundle\Exception\ResourseOwnerException;
 
 class AuthService
 {
@@ -41,7 +44,7 @@ class AuthService
         return new LinkData(
             link: $this->provider->getAuthorizationUrl([
                 'response_type' => (
-                    is_null($responseType) ?
+                is_null($responseType) ?
                     AuthorizeResponseType::CODE :
                     $responseType
                 )->value,
@@ -63,7 +66,7 @@ class AuthService
     ): AccessToken {
         if (is_null($this->tokenData)) {
             $this->tokenData = $this->provider->getAccessToken(
-                grant: $grant,
+                grant: $grant->value,
                 options: match (true) {
                     $grant->isClientCredentials() => [],
                     $grant->isPassword() => [
@@ -84,10 +87,31 @@ class AuthService
     }
 
     /**
-     * @return array<UserData>
+     * @param AccessToken $accessToken
+     *
+     * @return UserData
+     * @throws ResourseOwnerException
+     * @throws Exception
      */
-    public function getUserData(): array
+    public function getUserData(AccessToken $accessToken): UserData
     {
+        $ownerData = $this->provider->getResourceOwner($accessToken)->toArray();
 
+        if (!empty($ownerData['data']['errors'])) {
+            throw new ResourseOwnerException(
+                current($ownerData['data']['errors'])['message'],
+            );
+        }
+
+        return new UserData(
+            subject: $ownerData['sub'],
+            id: $ownerData['id'],
+            email: $ownerData['email'],
+            phone: $ownerData['phone'],
+            roles: $ownerData['roles'] ?? null,
+            isHasPassword: $ownerData['is_has_password'],
+            createdAt: new DateTimeImmutable($ownerData['created_at']),
+            updatedAt: new DateTimeImmutable($ownerData['updated_at']),
+        );
     }
 }
