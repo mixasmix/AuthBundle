@@ -105,13 +105,13 @@ class AuthService
 
         return new UserData(
             subject: $ownerData['sub'],
-            id: $ownerData['id'],
-            email: $ownerData['email'],
-            phone: $ownerData['phone'],
-            roles: $ownerData['roles'] ?? null,
-            isHasPassword: $ownerData['is_has_password'],
-            createdAt: new DateTimeImmutable($ownerData['created_at']),
-            updatedAt: new DateTimeImmutable($ownerData['updated_at']),
+            id: $ownerData['id'] ?? null,
+            email: $ownerData['email'] ?? null,
+            phone: $ownerData['phone'] ?? null,
+            roles: $ownerData['roles'] ?? [],
+            isHasPassword: $ownerData['is_has_password'] ?? null,
+            createdAt: new DateTimeImmutable($ownerData['created_at']) ?? null,
+            updatedAt: new DateTimeImmutable($ownerData['updated_at']) ?? null,
         );
     }
 }
