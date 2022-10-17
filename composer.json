@@ -1,0 +1,30 @@
+{
+    "name": "mixasmix/auth-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony Bundle for AuthService",
+    "keywords": ["symfony6", "jwt"],
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "mixasmix",
+            "email": "mixasmix@mail.ru"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "ext-json": "*",
+        "symfony/framework-bundle": "^6.1",
+        "symfony/yaml": "^6.1",
+        "league/oauth2-client": "^2.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mixasmix\\AuthBundle\\": ""
+        },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
