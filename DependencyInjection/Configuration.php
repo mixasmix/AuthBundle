@@ -17,7 +17,7 @@ class Configuration implements ConfigurationInterface
         $rootNode = $builder->getRootNode();
 
         $rootNode->children()
-            ->scalarNode('server_url')
+            ->scalarNode('service_url')
                 ->isRequired()
                 ->defaultValue('')
                 ->end()
