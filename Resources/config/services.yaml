@@ -1,0 +1,18 @@
+services:
+  auth.service:
+    class: Mixasmix\AuthBundle\Service\AuthService
+    arguments:
+      $authServiceUrl: "%auth.service_url%"
+      $authClientId: "%auth.client_id%"
+      $authClientSecret: "%auth.client_secret%"
+      $authUrlAuthorize: "%auth.url_authorize%"
+      $authUrlAccessToken: "%auth.url_access_token%"
+      $authUrlResourcesOwnerDetails: "%auth.url_resource_owner_details%"
+      $redirectUrl: "%auth.redirect_uri%"
+  auth.controller:
+    class: Mixasmix\AuthBundle\Controller\AuthorizationController
+    autoconfigure: true
+    public: true
+
+  Mixasmix\AuthBundle\Service\AuthService: '@auth.service'
+  Mixasmix\AuthBundle\Controller\AuthorizationController: '@auth.controller'

@@ -1,4 +1,3 @@
-# AuthorizationBundle
 ## Для использования бандла необходимо
 ### Установить бандл командой
     composer require mixasmix/auth_service_bundle
