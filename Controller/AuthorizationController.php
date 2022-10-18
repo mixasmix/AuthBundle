@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AuthorizationController extends AbstractController
 {
     public function __construct(
-        private AuthService $authService,
+        private readonly AuthService $authService,
     ) {
     }
 
