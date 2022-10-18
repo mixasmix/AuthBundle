@@ -27,7 +27,7 @@ class AuthExtension extends Extension
         $container->setParameter(self::ALIAS . '.client_secret', $config['client_secret']);
         $container->setParameter(self::ALIAS . '.url_authorize', $config['url_authorize']);
         $container->setParameter(self::ALIAS . '.url_access_token', $config['url_access_token']);
-        $container->setParameter(self::ALIAS . '.url_resources_owner_details', $config['url_resources_owner_details']);
+        $container->setParameter(self::ALIAS . '.url_resource_owner_details', $config['url_resource_owner_details']);
         $container->setParameter(self::ALIAS . '.redirect_url', $config['redirect_url']);
     }
 
