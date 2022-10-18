@@ -1,2 +1,8 @@
 auth:
-  user: 'test_user_string'
+  service_url: '%env(AUTH_SERVER_URL)%'
+  client_id: '%env(AUTH_CLIENT_ID)%'
+  client_secret: '%env(AUTH_CLIENT_SECRET)%'
+  redirect_uri: '%env(AUTH_REDIRECT_URI)%'
+  url_authorize: '%env(AUTH_URL_AUTHORIZE)%'
+  url_access_token: '%env(AUTH_URL_ACCESS_TOKEN)%'
+  url_resource_owner_details: '%env(AUTH_URL_RESOURCE_OWNER_DETAILS)%'
