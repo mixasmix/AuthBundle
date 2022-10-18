@@ -11,3 +11,5 @@ services:
       $redirectUrl: "%auth.redirect_uri%"
   auth.controller:
     class: Mixasmix\AuthBundle\Controller\AuthController
+
+  Mixasmix\AuthBundle\Service\AuthService: '@auth.service'
