@@ -9,7 +9,7 @@ services:
       $authUrlAuthorize: '%auth.url_authorize%'
       $authUrlAccessToken: '%auth.url_access_token%'
       $authUrlResourcesOwnerDetails: '%auth.url_resource_owner_details%'
-      $redirectUrl: '%auth.redirect_url%'
+      $redirectUrl: '%auth.redirect_uri%'
 
   Mixasmix\AuthBundle\Service\AuthService:
     public: true
