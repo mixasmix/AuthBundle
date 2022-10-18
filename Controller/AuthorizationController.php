@@ -18,7 +18,7 @@ class AuthorizationController extends AbstractController
     }
 
     #[Route(path: '/link', name: 'auth_get_link', methods: ['GET'])]
-    public function getLink(): JsonResponse
+    public function getLink()
     {
         return $this->json($this->authService->getAuthorizeLink());
     }
